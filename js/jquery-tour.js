@@ -1,4 +1,4 @@
-// Comes from http://tympanus.net/codrops/2010/12/21/website-tour/
+//Comes from http://tympanus.net/codrops/2010/12/21/website-tour/
 
 $(function() {
     // Does nothing if no config provided in current page
@@ -7,7 +7,7 @@ $(function() {
     }
 
     /*
-        TL	top left
+        TL  top left
         TR  top right
         BL  bottom left
         BR  bottom right
@@ -22,10 +22,10 @@ $(function() {
      */
     
     //current step of the tour
-    var step		= 0;
+    var step        = 0;
     
     //total number of steps
-    var total_steps	= jqueryTourConfig.steps.length;
+    var total_steps = jqueryTourConfig.steps.length;
     var title = jqueryTourConfig.title;
         
     //show the tour controls
@@ -101,19 +101,19 @@ $(function() {
         //remove current tooltip
         removeTooltip();
         
-        var step_config		= jqueryTourConfig.steps[step-1];
-        var $elem			= $(step_config.element);
+        var step_config     = jqueryTourConfig.steps[step-1];
+        var $elem           = $(step_config.element);
         var bgcolor         = typeof step_config.bgcolor == "undefined" ? "#222" : step_config.bgolor;
         var color           = typeof step_config.color == "undefined" ? "white" : step_config.bgolor;
-        var tip_position 	= typeof step_config.position == "undefined" ? "TL" : step_config.position;
+        var tip_position    = typeof step_config.position == "undefined" ? "TL" : step_config.position;
         
         var $tooltip = $('<div>', {
-            id			: 'jquery-tour-tooltip',
+            id          : 'jquery-tour-tooltip',
             'class'     : 'jquery-tour-tooltip'
         }).css({
-            'display'			: 'none',
-            'background-color'	: bgcolor,
-            'color'				: color
+            'display'           : 'none',
+            'background-color'  : bgcolor,
+            'color'             : color
         });
         
         var tooltipHtml = '<div class="tip-text">'+step_config.text+'</div><span class="jquery-tour-tooltip-arrow"></span>';
@@ -126,99 +126,99 @@ $(function() {
         //position the tooltip correctly:
         
         //the css properties the tooltip should have
-        var properties		= {};
+        var properties      = {};
         
         //append the tooltip but hide it
         $('body').prepend($tooltip);
         
         //get some info of the element
-        var e_w				= $elem.outerWidth();
-        var e_h				= $elem.outerHeight();
-        var e_l				= $elem.offset().left - 15;
-        var e_t				= $elem.offset().top;
+        var e_w             = $elem.outerWidth();
+        var e_h             = $elem.outerHeight();
+        var e_l             = $elem.offset().left - 15;
+        var e_t             = $elem.offset().top;
         
         switch(tip_position) {
-            case 'TL'	:
+            case 'TL'   :
                 properties = {
-                    'left'	: e_l,
-                    'top'	: e_t + e_h + 'px'
+                    'left'  : e_l + e_w / 2,
+                    'top'   : e_t + e_h + 5
                 };
                 $tooltip.find('span.jquery-tour-tooltip-arrow').addClass('jquery-tour-tooltip-arrow_TL');
                 break;
-            case 'TR'	:
+            case 'TR'   :
                 properties = {
-                    'left'	: e_l + e_w - $tooltip.width() + 'px',
-                    'top'	: e_t + e_h + 'px'
+                    'left'  : e_l + e_w / 2 - $tooltip.width(),
+                    'top'   : e_t + e_h + 5
                 };
                 $tooltip.find('span.jquery-tour-tooltip-arrow').addClass('jquery-tour-tooltip-arrow_TR');
                 break;
-            case 'BL'	:
+            case 'BL'   :
                 properties = {
-                    'left'	: e_l + 'px',
-                    'top'	: e_t - $tooltip.height() + 'px'
+                    'left'  : e_l,
+                    'top'   : e_t - $tooltip.height() - 5
                 };
                 $tooltip.find('span.jquery-tour-tooltip-arrow').addClass('jquery-tour-tooltip-arrow_BL');
                 break;
-            case 'BR'	:
+            case 'BR'   :
                 properties = {
-                    'left'	: e_l + e_w - $tooltip.width() + 'px',
-                    'top'	: e_t - $tooltip.height() + 'px'
+                    'left'  : e_l + e_w - $tooltip.width(),
+                    'top'   : e_t - $tooltip.height() - 5
                 };
                 $tooltip.find('span.jquery-tour-tooltip-arrow').addClass('jquery-tour-tooltip-arrow_BR');
                 break;
-            case 'LT'	:
+            case 'LT'   :
                 properties = {
-                    'left'	: e_l + e_w + 'px',
-                    'top'	: e_t + 'px'
+                    'left'  : e_l + e_w,
+                    'top'   : e_t
                 };
                 $tooltip.find('span.jquery-tour-tooltip-arrow').addClass('jquery-tour-tooltip-arrow_LT');
                 break;
-            case 'LB'	:
+            case 'LB'   :
                 properties = {
-                    'left'	: e_l + e_w + 'px',
-                    'top'	: e_t + e_h - $tooltip.height() + 'px'
+                    'left'  : e_l + e_w,
+                    'top'   : e_t + e_h - $tooltip.height()
                 };
                 $tooltip.find('span.jquery-tour-tooltip-arrow').addClass('jquery-tour-tooltip-arrow_LB');
                 break;
-            case 'RT'	:
+            case 'RT'   :
                 properties = {
-                    'left'	: e_l - $tooltip.width() + 'px',
-                    'top'	: e_t + 'px'
+                    'left'  : e_l - $tooltip.width(),
+                    'top'   : e_t
                 };
                 $tooltip.find('span.jquery-tour-tooltip-arrow').addClass('jquery-tour-tooltip-arrow_RT');
                 break;
-            case 'RB'	:
+            case 'RB'   :
                 properties = {
-                    'left'	: e_l - $tooltip.width() + 'px',
-                    'top'	: e_t + e_h - $tooltip.height() + 'px'
+                    'left'  : e_l - $tooltip.width(),
+                    'top'   : e_t + e_h - $tooltip.height()
                 };
                 $tooltip.find('span.jquery-tour-tooltip-arrow').addClass('jquery-tour-tooltip-arrow_RB');
                 break;
-            case 'T'	:
+            case 'T'    :
                 properties = {
-                    'left'	: e_l + e_w/2 - $tooltip.width()/2 + 'px',
-                    'top'	: e_t + e_h + 'px'
+                    'left'  : e_l + e_w/2 - $tooltip.width()/2,
+                    'top'   : e_t + e_h + 5
                 };
                 $tooltip.find('span.jquery-tour-tooltip-arrow').addClass('jquery-tour-tooltip-arrow_T');
                 break;
-            case 'R'	:
+            case 'R'    :
                 properties = {
-                    'left'	: e_l - $tooltip.width() + 'px',
-                    'top'	: e_t + e_h/2 - $tooltip.height()/2 + 'px'
+                    'left'  : e_l - $tooltip.width(),
+                    'top'   : e_t + e_h/2 - $tooltip.height()/2
                 };
                 $tooltip.find('span.jquery-tour-tooltip-arrow').addClass('jquery-tour-tooltip-arrow_R');
                 break;
-            case 'B'	:
+            case 'B'    :
                 properties = {
-                    'left'	: e_l + e_w/2 - $tooltip.width()/2 + 'px',
-                    'top'	: e_t - $tooltip.height() + 'px'
+                    'left'  : e_l + e_w/2 - $tooltip.width()/2,
+                    'top'   : e_t - $tooltip.height() - 5
                 };
                 $tooltip.find('span.jquery-tour-tooltip-arrow').addClass('jquery-tour-tooltip-arrow_B');
                 break;
-            case 'L'	:
+            case 'L'    :
                 properties = {
-                    'left'	: e_l + e_w  + 'px',
-                    'top'	: e_t + e_h/2 - $tooltip.height()/2 + 'px'
+                    'left'  : e_l + e_w ,
+                    'top'   : e_t + e_h/2 - $tooltip.height()/2
                 };
                 $tooltip.find('span.jquery-tour-tooltip-arrow').addClass('jquery-tour-tooltip-arrow_L');
                 break;
@@ -230,7 +230,7 @@ $(function() {
         if the element is not in the viewport
         we scroll to it before displaying the tooltip
          */
-        var w_t	= $(window).scrollTop();
+        var w_t = $(window).scrollTop();
         var w_b = $(window).scrollTop() + $(window).height();
         //get the boundaries of the element + tooltip
         var b_t = parseFloat(properties.top,10);
