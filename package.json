@@ -1,0 +1,7 @@
+{
+  "name": "jquery-tour",
+  "version": "1.0.0",
+  "main": "js/jquery-tour.js",
+  "repository": "https://github.com/nbraquart/jquery-tour.git",
+  "license": "MIT"
+}
