@@ -1,5 +1,6 @@
 //Comes from http://tympanus.net/codrops/2010/12/21/website-tour/
 
+(function($) {
 $(function() {
     // Does nothing if no config provided in current page
     if (typeof jqueryTourConfig == 'undefined') {
@@ -288,3 +289,4 @@ $(function() {
         $('#jquery-tour-overlay').remove();
     }
 });
+})(require('jquery'));
