@@ -277,7 +277,7 @@ $(function() {
     }
     
     function hideControls() {
-        $('#tourcontrols').remove();
+        $('#jquery-tour-controls').remove();
     }
     
     function showOverlay() {
